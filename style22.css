@@ -1,0 +1,260 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #202020; /* 전체 배경색 */
+    color: #f0f0f0; /* 기본 글자색 */
+    line-height: 1.6;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+.main-wrapper {
+    max-width: 1400px; /* 전체 컨테이너 최대 너비 */
+    margin: 0 auto;
+    background-color: #2b2b2b; /* 메인 콘텐츠 배경색 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    overflow: hidden; /* 자식 요소의 넘침 방지 */
+}
+
+/* 헤더 섹션 */
+.header-section {
+    background-color: #202020;
+    padding: 15px 30px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #e0e0e0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    color: #c0c0c0;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #ffffff;
+}
+
+.contact-button {
+    background-color: #ff6600; /* 주황색 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #e65c00;
+}
+
+/* 히어로 섹션 (메인 콘텐츠) */
+.hero-section {
+    display: flex;
+    align-items: center;
+    padding: 60px 30px;
+    min-height: 700px; /* 최소 높이 설정 */
+
+    /* ----- main.png 배경 이미지 적용 부분 ----- */
+    background: url('main.png') no-repeat center right/cover; /* main.png 파일 사용 및 오른쪽 정렬, 커버 */
+    position: relative; /* AI 융 로고 오버레이를 위해 추가 */
+    /* ------------------------------------------- */
+
+    gap: 40px; /* 요소들 사이 간격 */
+}
+
+.hero-content {
+    flex: 1; /* 왼쪽 영역이 공간을 차지하도록 */
+    max-width: 50%; /* 최대 너비 */
+    padding-right: 40px;
+}
+
+.hero-content .tagline {
+    font-size: 1.1em;
+    color: #ff6600;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-size: 4.5em; /* 제목 크기 */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero-content .description {
+    font-size: 1.1em;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.action-buttons button {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: 1px solid #5a5a5a;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.action-buttons .learn-more-button {
+    background-color: #ff6600; /* 주황색 */
+    border-color: #ff6600;
+    color: white;
+}
+
+.action-buttons .learn-more-button:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
+
+.action-buttons button:hover {
+    background-color: #4a4a4a;
+    border-color: #6a6a6a;
+}
+
+.hero-content .small-text {
+    font-size: 0.85em;
+    color: #808080;
+}
+
+/* 이제 배경 이미지를 사용하므로 이 컨테이너는 숨깁니다. */
+.hero-image-container {
+    display: none;
+}
+
+/* AI 융 로고 오버레이는 이전에 이미지 위에 있던 텍스트 로고입니다. */
+/* 원본 이미지에 AI 융 로고가 이미 포함되어 있다면 이 부분을 숨겨 겹치지 않게 할 수 있습니다. */
+/* 만약 원본 이미지에 AI 융 로고가 없다면, 이 부분을 살려두세요. */
+.ai-logo-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* 배경 이미지 기준으로 오른쪽 상단 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    /* 원본 이미지에 로고가 이미 있다면 아래 라인을 추가하여 숨김 */
+    /* display: none; */
+}
+
+
+/* 기타 페이지 링크 (임시) */
+.other-pages-nav {
+    text-align: center;
+    padding: 30px;
+    background-color: #2b2b2b;
+    border-top: 1px solid #3a3a3a;
+    color: #c0c0c0;
+    font-size: 0.9em;
+}
+
+.other-pages-nav a {
+    color: #ff6600;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.other-pages-nav a:hover {
+    text-decoration: underline;
+}
+
+/* 모바일 반응형 디자인 */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column; /* 화면이 작아지면 세로로 배치 */
+        text-align: center;
+        padding: 40px 20px;
+        background-position: center center/cover; /* 작은 화면에서는 이미지를 중앙으로 */
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+
+    /* 이미지 컨테이너가 display: none; 이므로 이 부분은 이제 영향을 주지 않습니다. */
+    /* .hero-image-container {
+        width: 100%;
+        max-width: 600px;
+    } */
+
+    .main-nav ul {
+        flex-wrap: wrap; /* 메뉴 항목들이 넘치면 다음 줄로 */
+        justify-content: center;
+    }
+
+    .main-nav ul li {
+        margin: 10px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
